@@ -1,465 +1,180 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Piano Rock</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-background:#000;
-font-family:Arial, Helvetica, sans-serif;
-color:white;
-overflow-x:hidden;
+  background:#000;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
 }
 
-a{
-text-decoration:none;
-}
-
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:25px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:999;
-background:linear-gradient(to bottom,#000,#00000000);
-}
-
-.logo{
-width:110px;
-}
-
-nav{
-display:flex;
-gap:35px;
-}
-
-nav a{
-color:white;
-font-size:13px;
-font-weight:bold;
-text-transform:uppercase;
-letter-spacing:1px;
-}
-
-nav a:hover{
-color:#0b6cff;
-}
-
-.top-btn{
-background:#005dff;
-padding:14px 24px;
-border-radius:6px;
-font-size:12px;
-font-weight:bold;
-color:white;
-text-transform:uppercase;
-}
-
-.hero{
-height:100vh;
-background:
-linear-gradient(to right,#000 15%,#000000aa 40%,#00000022 100%),
-url('assets/hero.jpg');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-padding:0 60px;
-}
-
-.hero-content{
-max-width:600px;
-}
-
-.hero-small{
-color:#0b6cff;
-font-size:28px;
-font-weight:bold;
-letter-spacing:7px;
-text-transform:uppercase;
-margin-bottom:20px;
-}
-
-.hero h1{
-font-size:120px;
-line-height:0.9;
-text-transform:uppercase;
-font-weight:900;
-margin-bottom:20px;
-}
-
-.hero-blue{
-display:block;
-font-size:44px;
-color:#0b6cff;
-letter-spacing:16px;
-margin-top:20px;
-}
-
-.hero p{
-font-size:22px;
-line-height:1.5;
-max-width:520px;
-color:#ddd;
-margin-bottom:40px;
-}
-
-.hero-buttons{
-display:flex;
-gap:18px;
-}
-
-.btn{
-padding:18px 28px;
-border-radius:6px;
-font-size:13px;
-font-weight:bold;
-text-transform:uppercase;
-letter-spacing:1px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-}
-
-.btn-blue{
-background:#005dff;
-color:white;
-}
-
-.btn-outline{
-border:1px solid white;
-color:white;
-}
-
-.brands{
-padding:40px;
-border-top:1px solid #111;
-border-bottom:1px solid #111;
-background:#020202;
-}
-
-.brands-title{
-text-align:center;
-color:#0b6cff;
-font-size:18px;
-font-weight:bold;
-letter-spacing:4px;
-text-transform:uppercase;
-margin-bottom:35px;
-}
-
-.brand-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:20px;
-text-align:center;
-}
+/* =========================
+   SECTION
+========================= */
 
-.brand{
-font-size:38px;
-letter-spacing:5px;
-}
-
-.brand small{
-display:block;
-font-size:11px;
-color:#999;
-margin-top:10px;
-letter-spacing:2px;
-}
-
-.experience{
-padding:40px;
-display:grid;
-grid-template-columns:340px 1fr;
-gap:30px;
-align-items:start;
-overflow:hidden;
-background:#050505;
-}
-
-.exp-left{
-position:relative;
-z-index:2;
-}
-
-.exp-top{
-color:#0b6cff;
-font-size:24px;
-font-weight:bold;
-letter-spacing:5px;
-text-transform:uppercase;
-margin-bottom:20px;
-}
+.experience-section{
+  width:100%;
+  min-height:100vh;
+  background:#050505;
+  color:white;
 
-.exp-title{
-font-size:110px;
-line-height:0.85;
-font-weight:900;
-text-transform:uppercase;
-}
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-.exp-video{
-margin-top:35px;
-display:inline-flex;
-padding:18px 28px;
-border:1px solid white;
-border-radius:8px;
-color:white;
-font-weight:bold;
-font-size:14px;
-text-transform:uppercase;
-}
+  padding:60px 40px;
+  gap:70px;
 
-.exp-gallery{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:18px;
+  overflow:hidden;
 }
 
-.exp-photo{
-height:320px;
-border-radius:10px;
-overflow:hidden;
-border:1px solid #1f3d70;
-}
+/* =========================
+   TEXT
+========================= */
 
-.exp-photo img{
-width:100%;
-height:100%;
-object-fit:cover;
+.experience-text{
+  width:420px;
+  flex-shrink:0;
+  z-index:2;
 }
 
-.section{
-padding:40px;
-}
+.experience-text .subtitle{
+  color:#2f73ff;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:8px;
+  line-height:1.1;
 
-.section-title{
-color:#0b6cff;
-font-size:24px;
-font-weight:bold;
-letter-spacing:3px;
-text-transform:uppercase;
-margin-bottom:25px;
+  margin-bottom:35px;
 }
 
-.agenda-grid{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:18px;
-}
+.experience-text h1{
+  font-size:115px;
+  font-weight:900;
+  line-height:0.9;
+  letter-spacing:-5px;
 
-.agenda-card{
-background:linear-gradient(to bottom,#0b0b0b,#050505);
-border:1px solid #163a70;
-border-radius:10px;
-padding:25px 15px;
-text-align:center;
+  margin-bottom:45px;
 }
 
-.day{
-font-size:70px;
-font-weight:900;
-color:#0b6cff;
-line-height:1;
-}
+.video-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
 
-.month{
-font-size:24px;
-letter-spacing:10px;
-color:#0b6cff;
-margin-bottom:18px;
-}
+  color:white;
+  text-decoration:none;
 
-.city{
-font-size:18px;
-font-weight:bold;
-text-transform:uppercase;
-margin-bottom:10px;
-}
+  border:1px solid rgba(255,255,255,0.9);
+  border-radius:10px;
 
-.place{
-font-size:14px;
-color:#ccc;
-margin-bottom:20px;
-}
+  padding:18px 30px;
 
-.club-bar{
-margin:0 40px 40px;
-border:1px solid #0b6cff;
-padding:18px 22px;
-border-radius:8px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-weight:bold;
-color:#0b6cff;
-text-transform:uppercase;
-letter-spacing:2px;
-}
+  font-size:16px;
+  font-weight:800;
 
-.club{
-padding:0 40px 50px;
-display:grid;
-grid-template-columns:320px 1fr;
-gap:30px;
+  transition:0.3s;
 }
 
-.club-left h2{
-font-size:90px;
-line-height:0.85;
-text-transform:uppercase;
-margin-bottom:25px;
+.video-btn:hover{
+  background:white;
+  color:black;
 }
 
-.club-left p{
-font-size:18px;
-line-height:1.5;
-color:#ddd;
-margin-bottom:30px;
-}
+/* =========================
+   GALLERY
+========================= */
 
-.club-buttons{
-display:flex;
-flex-direction:column;
-gap:14px;
-}
+.experience-gallery{
+  display:flex;
+  gap:22px;
 
-.club-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:18px;
-}
+  flex:1;
+  overflow-x:auto;
 
-.club-card{
-background:linear-gradient(to bottom,#071423,#050505);
-border:1px solid #0b6cff;
-border-radius:12px;
-padding:30px 20px;
-text-align:center;
-min-height:240px;
+  scrollbar-width:none;
 }
 
-.club-icon{
-font-size:56px;
-margin-bottom:20px;
-color:#0b6cff;
+.experience-gallery::-webkit-scrollbar{
+  display:none;
 }
 
-.club-card h3{
-font-size:22px;
-text-transform:uppercase;
-margin-bottom:15px;
-}
+.experience-gallery img{
+  width:310px;
+  height:430px;
 
-.club-card p{
-font-size:14px;
-line-height:1.5;
-color:#ccc;
-}
+  object-fit:cover;
 
-footer{
-padding:40px;
-border-top:1px solid #111;
-display:grid;
-grid-template-columns:1.2fr 1fr 1fr 1fr;
-gap:40px;
-background:#020202;
-}
+  border-radius:10px;
 
-.footer-title{
-font-size:18px;
-font-weight:bold;
-text-transform:uppercase;
-margin-bottom:15px;
-letter-spacing:2px;
-}
+  border:1px solid rgba(46,111,255,0.5);
 
-footer p,
-footer a{
-display:block;
-font-size:14px;
-color:#ccc;
-margin-bottom:8px;
-}
+  flex-shrink:0;
 
-.social{
-display:flex;
-gap:18px;
-font-size:26px;
-margin-top:20px;
+  transition:0.4s;
 }
 
-@media(max-width:1000px){
-
-nav{
-display:none;
+.experience-gallery img:hover{
+  transform:scale(1.03);
 }
 
-.hero{
-padding:140px 25px 60px;
-}
+/* =========================
+   MOBILE
+========================= */
 
-.hero h1{
-font-size:65px;
-}
+@media(max-width:900px){
 
-.hero-blue{
-font-size:28px;
-letter-spacing:7px;
-}
+  .experience-section{
+    flex-direction:column;
+    align-items:flex-start;
 
-.hero p{
-font-size:18px;
-}
+    padding:40px 22px;
 
-.hero-buttons{
-flex-direction:column;
-}
+    gap:40px;
+  }
 
-.brand-grid,
-.exp-gallery,
-.agenda-grid,
-.club-grid,
-footer{
-grid-template-columns:1fr;
-}
+  .experience-text{
+    width:100%;
+  }
 
-.experience,
-.club{
-grid-template-columns:1fr;
-}
+  .experience-text .subtitle{
+    font-size:18px;
+    letter-spacing:5px;
+  }
 
-.exp-title{
-font-size:70px;
-}
+  .experience-text h1{
+    font-size:64px;
+    letter-spacing:-2px;
+  }
 
-.club-left h2{
-font-size:65px;
-}
+  .video-btn{
+    font-size:14px;
+    padding:15px 24px;
+  }
 
-.club-bar{
-display:block;
-text-align:center;
-}
+  .experience-gallery{
+    width:100%;
+  }
 
-.exp-photo{
-height:240px;
-}
+  .experience-gallery img{
+    width:240px;
+    height:320px;
+  }
 
 }
 
@@ -468,327 +183,43 @@ height:240px;
 
 <body>
 
-<header>
+<section class="experience-section">
 
-<img src="assets/logo.jpg" class="logo">
+  <!-- TEXTO -->
+  <div class="experience-text">
 
-<nav>
-<a href="#">Home</a>
-<a href="#">Agenda</a>
-<a href="#">Experiência</a>
-<a href="#">Vídeos</a>
-<a href="#">Clube</a>
-<a href="#">Contato</a>
-</nav>
+    <div class="subtitle">
+      MAIS DO QUE UM<br>
+      SHOW.
+    </div>
 
-<a href="#" class="top-btn">🎟 Comprar ingressos</a>
+    <h1>
+      UMA<br>
+      EXPERIÊNCIA.
+    </h1>
 
-</header>
+    <a href="#" class="video-btn">
+      ▶ ASSISTA AO VÍDEO
+    </a>
 
-<section class="hero">
+  </div>
 
-<div class="hero-content">
+  <!-- FOTOS -->
+  <div class="experience-gallery">
 
-<div class="hero-small">
-O maior
-</div>
+    <img src="foto1.jpg" alt="Piano Rock">
 
-<h1>
-Espetáculo<br>
-de Piano Rock
-<span class="hero-blue">DO BRASIL</span>
-</h1>
+    <img src="foto2.jpg" alt="Piano Rock">
 
-<p>
-Uma experiência emocionante que une rock, piano e orquestra em um show inesquecível.
-</p>
+    <img src="foto3.jpg" alt="Piano Rock">
 
-<div class="hero-buttons">
+    <img src="foto4.jpg" alt="Piano Rock">
 
-<a href="#" class="btn btn-blue">
-🎟 Comprar ingressos
-</a>
+    <img src="foto5.jpg" alt="Piano Rock">
 
-<a href="#" class="btn btn-outline">
-☆ Clube Piano Rock
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </section>
-
-<section class="brands">
-
-<div class="brands-title">
-Reconhecido por gigantes da música
-</div>
-
-<div class="brand-grid">
-
-<div class="brand">
-COLDPLAY
-<small>REPOSTOU</small>
-</div>
-
-<div class="brand">
-BON JOVI
-<small>REPOSTOU</small>
-</div>
-
-<div class="brand">
-OASIS
-<small>MENÇÃO HONROSA</small>
-</div>
-
-<div class="brand">
-JOURNEY
-<small>REPOSTOU</small>
-</div>
-
-<div class="brand">
-ROCK IN RIO
-<small>JÁ SE APRESENTOU</small>
-</div>
-
-</div>
-
-</section>
-
-<section class="experience">
-
-<div class="exp-left">
-
-<div class="exp-top">
-Mais do que um show.
-</div>
-
-<div class="exp-title">
-UMA<br>
-EXPERIÊNCIA.
-</div>
-
-<a href="#" class="exp-video">
-▶ Assista ao vídeo
-</a>
-
-</div>
-
-<div class="exp-gallery">
-
-<div class="exp-photo">
-<img src="assets/experiencia-1.jpg">
-</div>
-
-<div class="exp-photo">
-<img src="assets/experiencia-2.jpg">
-</div>
-
-<div class="exp-photo">
-<img src="assets/experiencia-3.jpg">
-</div>
-
-<div class="exp-photo">
-<img src="assets/experiencia-4.jpg">
-</div>
-
-<div class="exp-photo">
-<img src="assets/experiencia-5.jpg">
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="section-title">
-Agenda de Shows
-</div>
-
-<div class="agenda-grid">
-
-<div class="agenda-card">
-<div class="day">08</div>
-<div class="month">JUL</div>
-<div class="city">Santo André | SP</div>
-<div class="place">Santo Rock Bar</div>
-<a href="#" class="btn btn-blue">Comprar ingresso</a>
-</div>
-
-<div class="agenda-card">
-<div class="day">09</div>
-<div class="month">JUL</div>
-<div class="city">Ribeirão Preto | SP</div>
-<div class="place">Teatro Pedro II</div>
-<a href="#" class="btn btn-blue">Comprar ingresso</a>
-</div>
-
-<div class="agenda-card">
-<div class="day">10</div>
-<div class="month">JUL</div>
-<div class="city">Campinas | SP</div>
-<div class="place">Santo Rock Bar</div>
-<a href="#" class="btn btn-blue">Comprar ingresso</a>
-</div>
-
-<div class="agenda-card">
-<div class="day">11</div>
-<div class="month">JUL</div>
-<div class="city">Araxá | MG</div>
-<div class="place">Festival Fenadoces</div>
-<a href="#" class="btn btn-blue">Comprar ingresso</a>
-</div>
-
-<div class="agenda-card">
-<div class="day">18</div>
-<div class="month">JUL</div>
-<div class="city">Sardenha</div>
-<div class="place">Evento Privado</div>
-<a href="#" class="btn btn-blue">Comprar ingresso</a>
-</div>
-
-<div class="agenda-card">
-<div class="day">28</div>
-<div class="month">AGO</div>
-<div class="city">Nova Venécia | ES</div>
-<div class="place">Festa da Cappitella</div>
-<a href="#" class="btn btn-blue">Comprar ingresso</a>
-</div>
-
-</div>
-
-</section>
-
-<div class="club-bar">
-
-<div>
-☆ Pré-venda exclusiva e 50% OFF para membros do Clube Piano Rock
-</div>
-
-<a href="#" class="btn btn-outline">
-Quero fazer parte
-</a>
-
-</div>
-
-<section class="club">
-
-<div class="club-left">
-
-<div class="section-title">
-Clube
-</div>
-
-<h2>
-Piano<br>
-Rock
-</h2>
-
-<p>
-Muito mais que um clube. Uma experiência exclusiva para quem vive o Piano Rock.
-</p>
-
-<div class="club-buttons">
-
-<a href="#" class="btn btn-blue">
-☆ Entrar no clube
-</a>
-
-<a href="#" class="btn btn-outline">
-☏ Falar no WhatsApp
-</a>
-
-</div>
-
-</div>
-
-<div class="club-grid">
-
-<div class="club-card">
-<div class="club-icon">🎟</div>
-<h3>Pré-venda antecipada</h3>
-<p>Acesso antes de todos aos ingressos.</p>
-</div>
-
-<div class="club-card">
-<div class="club-icon">50%</div>
-<h3>50% OFF na pré-venda</h3>
-<p>Desconto exclusivo para membros.</p>
-</div>
-
-<div class="club-card">
-<div class="club-icon">💺</div>
-<h3>Melhores lugares</h3>
-<p>Prioridade na escolha dos melhores lugares.</p>
-</div>
-
-<div class="club-card">
-<div class="club-icon">☆</div>
-<h3>Camarim após o show</h3>
-<p>Encontros exclusivos no camarim.</p>
-</div>
-
-<div class="club-card">
-<div class="club-icon">🎁</div>
-<h3>Brindes exclusivos</h3>
-<p>Itens exclusivos do clube.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<div>
-
-<img src="assets/logo.jpg" class="logo">
-
-<div class="social">
-◎ ▶ f ♪ ♫
-</div>
-
-</div>
-
-<div>
-
-<div class="footer-title">
-Navegação
-</div>
-
-<a href="#">Home</a>
-<a href="#">Agenda</a>
-<a href="#">Vídeos</a>
-<a href="#">Clube</a>
-
-</div>
-
-<div>
-
-<div class="footer-title">
-Contato
-</div>
-
-<p>Shows e Eventos</p>
-<p>(54) 9 9995-7212</p>
-<p>contato@pianorock.com.br</p>
-
-</div>
-
-<div>
-
-<div class="footer-title">
-Newsletter
-</div>
-
-<p>Receba novidades e pré-vendas exclusivas.</p>
-
-</div>
-
-</footer>
 
 </body>
 </html>
-```
