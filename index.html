@@ -1,225 +1,483 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Piano Rock</title>
+  <title>Piano Rock</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body{
-  background:#000;
-  font-family:Arial, Helvetica, sans-serif;
-  overflow-x:hidden;
-}
+    body {
+      background: #000;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
 
-/* =========================
-   SECTION
-========================= */
+    a {
+      text-decoration: none;
+    }
 
-.experience-section{
-  width:100%;
-  min-height:100vh;
-  background:#050505;
-  color:white;
+    /* =========================
+       HEADER
+    ========================= */
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
 
-  padding:60px 40px;
-  gap:70px;
+      padding: 24px 50px;
 
-  overflow:hidden;
-}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-/* =========================
-   TEXT
-========================= */
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
 
-.experience-text{
-  width:420px;
-  flex-shrink:0;
-  z-index:2;
-}
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
 
-.experience-text .subtitle{
-  color:#2f73ff;
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:8px;
-  line-height:1.1;
+    nav {
+      display: flex;
+      gap: 35px;
+    }
 
-  margin-bottom:35px;
-}
+    nav a {
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
 
-.experience-text h1{
-  font-size:115px;
-  font-weight:900;
-  line-height:0.9;
-  letter-spacing:-5px;
+    nav a:hover {
+      color: #2f73ff;
+    }
 
-  margin-bottom:45px;
-}
+    /* =========================
+       HERO
+    ========================= */
 
-.video-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
+    .hero {
+      width: 100%;
+      height: 100vh;
 
-  color:white;
-  text-decoration:none;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0.75)),
+        url('hero.jpg');
 
-  border:1px solid rgba(255,255,255,0.9);
-  border-radius:10px;
+      background-size: cover;
+      background-position: center;
 
-  padding:18px 30px;
+      display: flex;
+      align-items: center;
 
-  font-size:16px;
-  font-weight:800;
+      padding: 0 70px;
+    }
 
-  transition:0.3s;
-}
+    .hero-content {
+      max-width: 750px;
+    }
 
-.video-btn:hover{
-  background:white;
-  color:black;
-}
+    .hero h1 {
+      font-size: 100px;
+      line-height: 0.9;
+      margin-bottom: 25px;
+      font-weight: 900;
+      letter-spacing: -4px;
+    }
 
-/* =========================
-   GALLERY
-========================= */
+    .hero p {
+      font-size: 22px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.85);
 
-.experience-gallery{
-  display:flex;
-  gap:22px;
+      margin-bottom: 40px;
+    }
 
-  flex:1;
-  overflow-x:auto;
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-  scrollbar-width:none;
-}
+    .btn-primary {
+      background: #2f73ff;
+      color: white;
 
-.experience-gallery::-webkit-scrollbar{
-  display:none;
-}
+      padding: 18px 34px;
+      border-radius: 8px;
 
-.experience-gallery img{
-  width:310px;
-  height:430px;
+      font-weight: 800;
+      transition: 0.3s;
+    }
 
-  object-fit:cover;
+    .btn-primary:hover {
+      background: #4f88ff;
+    }
 
-  border-radius:10px;
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      color: white;
 
-  border:1px solid rgba(46,111,255,0.5);
+      padding: 18px 34px;
+      border-radius: 8px;
 
-  flex-shrink:0;
+      font-weight: 800;
+      transition: 0.3s;
+    }
 
-  transition:0.4s;
-}
+    .btn-secondary:hover {
+      background: white;
+      color: black;
+    }
 
-.experience-gallery img:hover{
-  transform:scale(1.03);
-}
+    /* =========================
+       EXPERIENCE SECTION
+    ========================= */
 
-/* =========================
-   MOBILE
-========================= */
+    .experience-section {
+      width: 100%;
+      min-height: 100vh;
 
-@media(max-width:900px){
+      background: #050505;
 
-  .experience-section{
-    flex-direction:column;
-    align-items:flex-start;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    padding:40px 22px;
+      gap: 70px;
 
-    gap:40px;
-  }
+      padding: 80px 40px;
 
-  .experience-text{
-    width:100%;
-  }
+      overflow: hidden;
+    }
 
-  .experience-text .subtitle{
-    font-size:18px;
-    letter-spacing:5px;
-  }
+    .experience-text {
+      width: 420px;
+      flex-shrink: 0;
+    }
 
-  .experience-text h1{
-    font-size:64px;
-    letter-spacing:-2px;
-  }
+    .experience-text .subtitle {
+      color: #2f73ff;
 
-  .video-btn{
-    font-size:14px;
-    padding:15px 24px;
-  }
+      font-size: 28px;
+      font-weight: 900;
 
-  .experience-gallery{
-    width:100%;
-  }
+      letter-spacing: 8px;
+      line-height: 1.1;
 
-  .experience-gallery img{
-    width:240px;
-    height:320px;
-  }
+      margin-bottom: 35px;
+    }
 
-}
+    .experience-text h2 {
+      font-size: 115px;
+      line-height: 0.9;
+      letter-spacing: -5px;
 
-</style>
+      margin-bottom: 45px;
+
+      font-weight: 900;
+    }
+
+    .video-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      border: 1px solid rgba(255, 255, 255, 0.8);
+
+      color: white;
+
+      padding: 18px 30px;
+
+      border-radius: 10px;
+
+      font-weight: 800;
+
+      transition: 0.3s;
+    }
+
+    .video-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    .experience-gallery {
+      display: flex;
+      gap: 22px;
+
+      flex: 1;
+
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .experience-gallery::-webkit-scrollbar {
+      display: none;
+    }
+
+    .experience-gallery img {
+      width: 310px;
+      height: 430px;
+
+      object-fit: cover;
+
+      border-radius: 10px;
+
+      border: 1px solid rgba(46, 111, 255, 0.4);
+
+      flex-shrink: 0;
+
+      transition: 0.4s;
+    }
+
+    .experience-gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      padding: 120px 70px;
+      background: #000;
+    }
+
+    .about h2 {
+      font-size: 70px;
+      margin-bottom: 35px;
+      font-weight: 900;
+    }
+
+    .about p {
+      max-width: 900px;
+
+      font-size: 22px;
+      line-height: 1.8;
+
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 50px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+      text-align: center;
+
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width: 900px) {
+
+      header {
+        padding: 18px 22px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 0 22px;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .experience-section {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 50px 22px;
+
+        gap: 40px;
+      }
+
+      .experience-text {
+        width: 100%;
+      }
+
+      .experience-text .subtitle {
+        font-size: 18px;
+        letter-spacing: 5px;
+      }
+
+      .experience-text h2 {
+        font-size: 64px;
+        letter-spacing: -2px;
+      }
+
+      .experience-gallery {
+        width: 100%;
+      }
+
+      .experience-gallery img {
+        width: 240px;
+        height: 320px;
+      }
+
+      .about {
+        padding: 70px 22px;
+      }
+
+      .about h2 {
+        font-size: 46px;
+      }
+
+      .about p {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="experience-section">
+  <!-- HEADER -->
+  <header>
 
-  <!-- TEXTO -->
-  <div class="experience-text">
-
-    <div class="subtitle">
-      MAIS DO QUE UM<br>
-      SHOW.
+    <div class="logo">
+      PIANO ROCK
     </div>
 
-    <h1>
-      UMA<br>
-      EXPERIÊNCIA.
-    </h1>
+    <nav>
+      <a href="#">HOME</a>
+      <a href="#">SHOWS</a>
+      <a href="#">VÍDEOS</a>
+      <a href="#">AGENDA</a>
+      <a href="#">CONTATO</a>
+    </nav>
 
-    <a href="#" class="video-btn">
-      ▶ ASSISTA AO VÍDEO
-    </a>
+  </header>
 
-  </div>
+  <!-- HERO -->
+  <section class="hero">
 
-  <!-- FOTOS -->
-  <div class="experience-gallery">
+    <div class="hero-content">
 
-    <img src="foto1.jpg" alt="Piano Rock">
+      <h1>
+        O MAIOR<br>
+        ESPETÁCULO<br>
+        DE PIANO<br>
+        DO BRASIL
+      </h1>
 
-    <img src="foto2.jpg" alt="Piano Rock">
+      <p>
+        Uma experiência emocionante que mistura piano,
+        rock, orquestra e performance em um show inesquecível.
+      </p>
 
-    <img src="foto3.jpg" alt="Piano Rock">
+      <div class="hero-buttons">
 
-    <img src="foto4.jpg" alt="Piano Rock">
+        <a href="#" class="btn-primary">
+          VER AGENDA
+        </a>
 
-    <img src="foto5.jpg" alt="Piano Rock">
+        <a href="#" class="btn-secondary">
+          ASSISTIR SHOW
+        </a>
 
-  </div>
+      </div>
 
-</section>
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience-section">
+
+    <div class="experience-text">
+
+      <div class="subtitle">
+        MAIS DO QUE UM<br>
+        SHOW.
+      </div>
+
+      <h2>
+        UMA<br>
+        EXPERIÊNCIA.
+      </h2>
+
+      <a href="#" class="video-btn">
+        ▶ ASSISTA AO VÍDEO
+      </a>
+
+    </div>
+
+    <div class="experience-gallery">
+
+      <img src="foto1.jpg" alt="">
+      <img src="foto2.jpg" alt="">
+      <img src="foto3.jpg" alt="">
+      <img src="foto4.jpg" alt="">
+      <img src="foto5.jpg" alt="">
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+
+    <h2>
+      PIANO ROCK
+    </h2>
+
+    <p>
+      Reconhecido internacionalmente por artistas como Coldplay,
+      Bon Jovi, Oasis e Journey, o Piano Rock transforma clássicos
+      do rock em performances épicas ao piano.
+      Um espetáculo emocionante com visual cinematográfico,
+      energia de arena e momentos inesquecíveis.
+    </p>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    © 2026 Piano Rock — Todos os direitos reservados.
+
+  </footer>
 
 </body>
+
 </html>
